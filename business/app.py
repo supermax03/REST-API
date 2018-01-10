@@ -35,15 +35,12 @@ def create_app():
 
             else:
                 if request.method == 'GET':
-                    results = []
-                    obj = {
+                    response = jsonify({
 
                         'name': farm.name,
                         'address': farm.address
 
-                    }
-                    results.append(obj)
-                    response = jsonify(results)
+                    })
         response.status_code = 200
         return response
 
