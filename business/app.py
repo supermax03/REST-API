@@ -13,7 +13,9 @@ def create_app():
 
     @app.route('/')
     def hello():
-        return "Hello Smart Farm"
+        response=jsonify({'App':'Smart Farm Api','version':'1.0','author':'Maximiliano Bordon'})
+        response.status_code=200
+        return response
 
     @app.route('/farmlist/<string:name>', methods=['GET', 'PUT', 'DELETE'])
     def getfarm(name, **kwargs):
